@@ -2217,7 +2217,7 @@ var i: Integer;
     pALpha : PDouble;
     pA1 : PDouble;
     nki : Integer;
-    lineRes : boolean;
+//    lineRes : boolean;
     //s : string;
 begin
      // quick return
