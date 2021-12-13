@@ -105,7 +105,7 @@ type
     procedure SetClosedCallback(ClosedProc: TOTAVisualizerClosedProcedure);
 
     procedure ThreadNotify(Reason: TOTANotifyReason); virtual;
-    procedure EvaluteComplete(const ExprStr, ResultStr: string; CanModify: Boolean; ResultAddress, ResultSize: LongWord; ReturnCode: Integer); virtual;
+    procedure EvaluateComplete(const ExprStr, ResultStr: string; CanModify: Boolean; ResultAddress, ResultSize: LongWord; ReturnCode: Integer); virtual;
     procedure ModifyComplete(const ExprStr, ResultStr: string; ReturnCode: Integer); virtual;
     procedure AfterSave(); virtual;
     procedure BeforeSave(); virtual;
@@ -637,7 +637,7 @@ begin
 end;
 *)
 
-procedure TBasicVisualizerViewerFrame.EvaluteComplete
+procedure TBasicVisualizerViewerFrame.EvaluateComplete
   (const ExprStr, ResultStr: string; CanModify: Boolean;
   ResultAddress, ResultSize: LongWord; ReturnCode: Integer);
 begin
