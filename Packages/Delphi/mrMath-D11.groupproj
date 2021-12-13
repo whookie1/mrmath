@@ -1,0 +1,62 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C26F19B2-3EAD-418E-BAB5-875ECF92FA2A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="mrMath.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="mrMathIDE.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="mrMath">
+        <MSBuild Projects="mrMath.dproj"/>
+    </Target>
+    <Target Name="mrMath:Clean">
+        <MSBuild Projects="mrMath.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mrMath:Make">
+        <MSBuild Projects="mrMath.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="mrMathIDE">
+        <MSBuild Projects="mrMathIDE.dproj"/>
+    </Target>
+    <Target Name="mrMathIDE:Clean">
+        <MSBuild Projects="mrMathIDE.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mrMathIDE:Make">
+        <MSBuild Projects="mrMathIDE.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="mrMath;mrMathIDE"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="mrMath:Clean;mrMathIDE:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="mrMath:Make;mrMathIDE:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+    <ItemGroup Condition="'$(BuildGroup)'=='Full rebuild'">
+        <BuildGroupProject Include="mrMathIDE.dproj">
+            <ProjectGuid>{7791052D-4AEF-4A52-81B7-6707426B14E5}</ProjectGuid>
+            <Configurations>Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="mrMath.dproj">
+            <ProjectGuid>{A4FB84FB-B165-4A9A-A284-2A4614E0FE4A}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+    </ItemGroup>
+</Project>

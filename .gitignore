@@ -1,0 +1,14 @@
+*.bak
+*.identcache
+*.local
+*.dcu
+*.exe
+*.otares
+*.res
+*.dres
+*.drc
+*.tvsconfig
+*.stat
+__history
+__recovery
+
